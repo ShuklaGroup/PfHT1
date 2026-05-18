@@ -26,9 +26,9 @@ Large datasets including molecular dynamics trajectories, topology files, MSM da
 
 ```text
 PfHT1-GAT/
-├── preprocessing.py
-├── gat_model.ipynb
-├── pfht1_gat_weights.pt
+├── preprocessing/make_input_graphs.py
+├── GAT_Model/gat_model.ipynb
+├── GAT_Model/best_model.pt
 ├── requirements.txt
 └── figures/
 ```
@@ -40,7 +40,7 @@ PfHT1-GAT/
 Generate graph inputs:
 
 ```bash
-python preprocessing.py \
+python make_input_graphs.py \
     --trajectory traj.xtc \
     --topology system.prmtop
 ```

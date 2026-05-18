@@ -14,10 +14,8 @@ Large datasets including molecular dynamics trajectories, topology files, MSM da
 
 ---
 
-## Overview Figure
-
 <p align="center">
-  <img src="figures/overview_figure.png" width="850">
+  <img src="figures/overview_pfht1.png" width="850">
 </p>
 
 ---

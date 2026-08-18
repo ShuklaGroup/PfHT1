@@ -1,0 +1,44 @@
+{
+  "output_directory": "../outputs",
+  "analysis": {
+    "endpoint_boxes_nm": {
+      "OF": {
+        "egate": [0.8, 1.0],
+        "igate": [0.25, 0.35]
+      },
+      "IF": {
+        "egate": [0.3, 0.4],
+        "igate": [0.9, 1.2]
+      }
+    },
+    "endpoint_frame_fraction": 0.1,
+    "minimum_assigned_frames": 25,
+    "minimum_endpoint_states": 20,
+    "maximum_candidate_paths": 20000,
+    "target_flux_fraction": 0.9,
+    "path_count_rounding": 5000,
+    "fingerprint_grid": 30,
+    "tica_percentiles": [0.5, 99.5],
+    "inverse_density_cap": 10.0,
+    "egate_midpoint_nm": 0.625,
+    "igate_midpoint_nm": 0.675
+  },
+  "systems": {
+    "apo": {
+      "msm": "/path/to/apo_msm.pkl",
+      "dtrajs": "/path/to/apo_discrete_trajectories.pkl",
+      "features": "/path/to/apo_feature_trajectories.pkl",
+      "tica": "/path/to/apo_tica_trajectories.pkl",
+      "egate_feature_index": 13,
+      "igate_feature_index": 14
+    },
+    "holo": {
+      "msm": "/path/to/holo_msm.pkl",
+      "dtrajs": "/path/to/holo_discrete_trajectories.pkl",
+      "features": "/path/to/holo_feature_trajectories.pkl",
+      "tica": "/path/to/holo_tica_trajectories.pkl",
+      "egate_feature_index": 13,
+      "igate_feature_index": 14
+    }
+  }
+}

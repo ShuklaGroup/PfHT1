@@ -7,7 +7,8 @@ Title of Manuscript.
 
 This repository accompanies our PfHT1 molecular mechanism study and contains:
 - Graph Attention Network (GAT) model
-- preprocessing script for graph generation
+- Transition-path theory (TPT), pathway fingerprinting, and VAE model scripts
+- preprocessing scripts for graph and transition-path generation
 - pretrained model weights
 
 Large datasets including molecular dynamics trajectories, topology files, MSM data, and processed simulation datasets are hosted separately in the associated data repository.
@@ -23,10 +24,15 @@ Large datasets including molecular dynamics trajectories, topology files, MSM da
 ## Repository Contents
 
 ```text
-PfHT1-GAT/
-├── preprocessing/make_input_graphs.py
-├── GAT_Model/gat_model.ipynb
-├── GAT_Model/best_model.pt
+PfHT1/
+├── preprocessing/
+│   ├── make_input_graphs.py
+│   └── tpt_fingerprints.py
+├── GAT_Model/
+├── VAE_Model/
+│   ├── analysis_config.example.json
+│   ├── train_vae.py
+│   └── cluster_pathways.py
 ├── requirements.txt
 └── figures/
 ```
@@ -53,6 +59,34 @@ Pretrained weights:
 pfht1_gat_weights.pt
 ```
 
+### TPT--VAE pathway analysis
+
+Copy `VAE_Model/analysis_config.example.json`, supply the apo and holo MSM,
+discrete-trajectory, feature, and tICA input paths, and run:
+
+```bash
+python preprocessing/tpt_fingerprints.py \
+    --config VAE_Model/analysis_config.json
+
+python VAE_Model/train_vae.py \
+    --system apo --seed 167 \
+    --fingerprints outputs/fingerprints/apo.npz \
+    --output outputs/models/apo
+
+python VAE_Model/train_vae.py \
+    --system holo --seed 239 \
+    --fingerprints outputs/fingerprints/holo.npz \
+    --output outputs/models/holo
+
+python VAE_Model/cluster_pathways.py \
+    --embedding outputs/models/apo/embedding.npz \
+    --fingerprints outputs/fingerprints/apo.npz \
+    --output outputs/clusters/apo
+```
+
+Repeat the clustering command with the holo files. Generated TPT paths,
+fingerprints, trained models, and clustering outputs are not tracked in Git.
+
 ---
 
 ## Additional Data
@@ -62,6 +96,7 @@ The following files are hosted separately due to size limitations:
 - topology (`.prmtop`) files
 - MSM datasets
 - processed graph datasets
+- framewise feature and tICA datasets used by the TPT--VAE analysis
 
 Data repository:
 [DATA REPOSITORY LINK]

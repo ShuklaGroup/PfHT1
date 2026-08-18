@@ -1,5 +1,8 @@
 numpy
 scipy
+pandas
+scikit-learn
+deeptime==0.4.4
 networkx
 mdtraj
 tqdm

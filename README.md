@@ -106,9 +106,6 @@ Data repository:
 ## Citation
 
 If you use this repository, please cite:
-
-```text
-[PAPER CITATION]
-```
+Paul, A., Xu, L., & Shukla, D. (2026). Substrate binding reorganizes the energetic landscape of Plasmodium falciparum hexose transporter PfHT1. bioRxiv, 2026-09
 
 ---

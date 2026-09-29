@@ -1,5 +1,5 @@
 ## PfHT1
-Title of Manuscript.
+Substrate binding reorganizes the energetic landscape of Plasmodium falciparum hexose transporter PfHT1
 
 ---
 

@@ -9,3 +9,5 @@ tqdm
 torch
 torch-geometric
 jupyter
+matplotlib
+seaborn

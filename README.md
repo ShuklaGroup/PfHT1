@@ -44,19 +44,23 @@ PfHT1/
 Generate graph inputs:
 
 ```bash
-python make_input_graphs.py \
-    --trajectory traj.xtc \
-    --topology system.prmtop
+export PFHT1_DATA_DIR=/path/to/shared_data
+
+python preprocessing/make_input_graphs.py \
+    --trajectory "$PFHT1_DATA_DIR/GAT/filtered_trajectory.xtc" \
+    --topology "$PFHT1_DATA_DIR/topology/PfHT1_OF_with_glc_mix_memb-strip.prmtop" \
+    --output "$PFHT1_DATA_DIR/GAT/processed_graphs/ligand_residue_allosteric_graphs_proteinCOM.pt"
 ```
 
-The notebook `gat_model.ipynb` contains:
+The notebook `GAT_Model/gat_interpretable-residue_importance.ipynb` reads the
+same data location from `PFHT1_DATA_DIR` and contains:
 - model architecture
 - training workflow
 - inference and evaluation
 
 Pretrained weights:
 ```text
-pfht1_gat_weights.pt
+GAT_Model/best_model.pt
 ```
 
 ### TPT--VAE pathway analysis
@@ -92,7 +96,7 @@ fingerprints, trained models, and clustering outputs are not tracked in Git.
 ## Additional Data
 
 The following files are hosted separately due to size limitations:
-- MD trajectories
+- filtered glucose-transport trajectory used for GAT graph preprocessing
 - topology (`.prmtop`) files
 - MSM datasets
 - processed graph datasets

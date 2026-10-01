@@ -103,7 +103,7 @@ The following files are hosted separately due to size limitations:
 - framewise feature and tICA datasets used by the TPT--VAE analysis
 
 Data repository:
-[DATA REPOSITORY LINK]
+(https://uofi.box.com/s/i5l1juaejny6m4bet8ybkmpyp5xqrdfs)
 
 ---
 

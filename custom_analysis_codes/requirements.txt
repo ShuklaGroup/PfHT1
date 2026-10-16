@@ -1,0 +1,8 @@
+deeptime==0.4.4
+matplotlib
+mdtraj
+numpy
+pandas
+scikit-learn
+scipy
+seaborn

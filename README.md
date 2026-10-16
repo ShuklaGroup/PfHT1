@@ -8,6 +8,7 @@ Substrate binding reorganizes the energetic landscape of Plasmodium falciparum h
 This repository accompanies our PfHT1 molecular mechanism study and contains:
 - Graph Attention Network (GAT) model
 - Transition-path theory (TPT), pathway fingerprinting, and VAE model scripts
+- custom MSM, free-energy, residue-contact, binding-pocket/TM7b, and yeast-growth analyses
 - preprocessing scripts for graph and transition-path generation
 - pretrained model weights
 
@@ -33,6 +34,12 @@ PfHT1/
 │   ├── analysis_config.example.json
 │   ├── train_vae.py
 │   └── cluster_pathways.py
+├── custom_analysis_codes/
+│   ├── msm_kinetics/
+│   ├── free_energy_landscapes/
+│   ├── binding_pocket_tm7b/
+│   ├── residue_contacts/
+│   └── yeast_growth/
 ├── requirements.txt
 └── figures/
 ```
@@ -91,6 +98,26 @@ python VAE_Model/cluster_pathways.py \
 Repeat the clustering command with the holo files. Generated TPT paths,
 fingerprints, trained models, and clustering outputs are not tracked in Git.
 
+### Custom molecular-simulation and experimental analyses
+
+The `custom_analysis_codes/` directory contains the remaining custom analysis
+used in the manuscript. Apo and glucose-bound calculations share the same
+configurable scripts instead of maintaining condition-specific copies. The
+included workflows cover:
+
+- transport-coordinate featurization, tICA, MSM construction, bootstrapping,
+  and macrostate MFPTs
+- MSM-weighted free-energy landscapes
+- fresh MSM-weighted sampling and apo-reference clustering of binding-pocket
+  geometries
+- TM7b hydrogen-bond cracking and the corresponding two-state equilibrium
+  free-energy difference
+- residue-residue contact-score differences
+- pooled yeast-growth analysis
+
+See [`custom_analysis_codes/README.md`](custom_analysis_codes/README.md) for
+inputs, analysis definitions, parameter values, and execution order.
+
 ---
 
 ## Additional Data
@@ -101,6 +128,7 @@ The following files are hosted separately due to size limitations:
 - MSM datasets
 - processed graph datasets
 - framewise feature and tICA datasets used by the TPT--VAE analysis
+- trajectories, MSM models, frame-provenance tables, and intermediate arrays used by the custom analyses
 
 Data repository:
 (https://uofi.box.com/s/i5l1juaejny6m4bet8ybkmpyp5xqrdfs)
